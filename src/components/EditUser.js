@@ -55,7 +55,10 @@ export default class EditUser extends React.Component {
            // this.props.register(user);
            console.log('----------'+JSON.stringify(user));
           axios.post('http://localhost:3001/users/user_update', user)
-                      .then(res => console.log(res.data));
+                      .then(res => {
+                          this.props.history.push('/userList');
+                          console.log(res.data)
+                      });
         }
     }
 

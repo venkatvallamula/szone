@@ -39,7 +39,14 @@ constructor(props) {
            // this.props.register(user);
            console.log('----------'+JSON.stringify(user));
           axios.post('http://localhost:3001/users/register', user)
-                      .then(res => console.log(res.data));
+              .then(res => {
+                  if(res.data.status==1){
+                    this.props.history.push('/login');
+                  }else{
+                    alert(res.data.user)
+                  }
+                  console.log(res.data)
+              });
         }
     }
 
